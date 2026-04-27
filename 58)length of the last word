@@ -1,0 +1,17 @@
+#by using string handling function
+#Method -1
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        res=s.strip().split()[-1]
+        return  len(res)
+#Method -2
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        word=""
+        for char in reversed(s.strip()):
+            if char == " ":
+                break
+            else:
+                word=char+word
+        
+        return len(word)
