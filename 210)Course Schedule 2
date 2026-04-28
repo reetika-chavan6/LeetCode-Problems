@@ -1,0 +1,26 @@
+# graph related problem
+class Solution(object):
+    def findOrder(self, numCourses, prerequisites):
+        adj=[[] for i in range(numCourses)]
+        for s,d in prerequisites:
+            adj[s].append(d)
+        output=[]
+        cycle,completed=set(),set()
+        def dfs(curr):
+            if curr in completed:
+                return True
+            if curr in cycle: 
+                return False
+            cycle.add(curr)
+            for ne in adj[curr]:
+                if dfs(ne)==False:
+                    return False
+            completed.add(curr)
+            cycle.remove(curr)
+            output.append(curr)
+            return True
+        for c in range(numCourses):
+            if dfs(c)== False:
+                return []
+        return output
+        
