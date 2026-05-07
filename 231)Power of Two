@@ -1,0 +1,9 @@
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        # return n & n-1 ==0 and n!=0(using bit manipulation)
+
+        while n%2==0 and n>0:    #(using iteration method)
+            n=n//2
+        if n==1:
+            return True
+        return False
