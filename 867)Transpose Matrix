@@ -1,0 +1,8 @@
+class Solution(object):
+    def transpose(self, matrix):
+        r,c=len(matrix),len(matrix[0])
+        row=[[0]*r for i in range(c)]
+        for i in range(r):
+            for j in range(c):
+                row[j][i]=matrix[i][j]
+        return row
