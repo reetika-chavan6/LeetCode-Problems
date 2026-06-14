@@ -1,0 +1,10 @@
+class Solution(object):
+    def vowelStrings(self, words, left, right):
+        s="aeiouAEIOU"
+        count=0
+        for i in range(left,right+1):
+            k=words[i]
+            n=len(k)-1
+            if k[0] in s and k[n] in s:
+                count+=1
+        return count
