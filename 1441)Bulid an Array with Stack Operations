@@ -1,0 +1,10 @@
+class Solution(object):
+    def buildArray(self, target, n):
+        s=[]
+        for i in range(1,n+1):
+            s.append("Push")
+            if i not in target :
+                s.append("Pop")
+            if  target[-1]<=i:
+                break
+        return s
