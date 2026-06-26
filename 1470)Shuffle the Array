@@ -1,0 +1,10 @@
+class Solution(object):
+    def shuffle(self, nums, n):
+        s=nums[:n]
+        k=nums[n:]
+        r=[]
+        for i in range(n):
+            r.append(s[i])
+            r.append(k[i])
+        return  r
+            
