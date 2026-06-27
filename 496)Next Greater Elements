@@ -1,0 +1,14 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        s=[]
+        for i in nums1:
+            flag=False
+            g=-1
+            for j in range(len(nums2)):
+                if i == nums2[j]:
+                    flag=True
+                elif flag and nums2[j]>i:
+                    g=nums2[j]
+                    break
+            s.append(g)
+        return s
