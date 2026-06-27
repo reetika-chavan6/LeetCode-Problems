@@ -1,0 +1,19 @@
+class Solution(object):
+    def backspaceCompare(self, s, t):
+        P=[]
+        Q=[]
+        for i in s:
+            if i!="#":
+                P.append(i)
+            else:
+                if P:
+                    P.pop()
+        for i in t:
+            if i !="#":
+                Q.append(i)
+            else:
+                if Q:
+                    Q.pop()
+        if P==Q:
+            return True
+        return False
