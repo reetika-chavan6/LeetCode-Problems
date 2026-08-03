@@ -1,0 +1,35 @@
+class Solution(object):
+    def maxVowels(self, s, k):
+        vowels="aeiou"
+        count=0
+        for i in range(k):
+            if s[i] in vowels:
+                count+=1
+        ans=count
+        for i in range(k,len(s)):
+            if s[i-k] in vowels:
+                count-=1
+            if s[i] in vowels:
+                count+=1
+            ans=max(ans,count)
+        return ans
+
+
+#brute-force solution:(Time complexity :O(n2))
+class Solution(object):
+    def maxVowels(self, s, k):
+        vowels="AEIOUaeiou"
+        maxCount=0
+        for i in range(k,len(s)+1):
+            count=0
+            x=s[i-k:i]
+            for j in x:
+                if j in vowels:
+                    count+=1
+            maxCount=max(count,maxCount)
+        return maxCount
+            
+
+      
+        
+            
