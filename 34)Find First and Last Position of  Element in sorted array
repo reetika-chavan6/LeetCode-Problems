@@ -1,0 +1,45 @@
+#BRUTE FORCE APPROACH
+class Solution(object):
+    def searchRange(self, nums, target):
+        start,end = -1,-1
+        for i in range(len(nums)):
+            if nums[i] == target:
+                start=i
+                break
+        for j in range(len(nums)):
+            if nums[j]>target and nums[j-1]==target:
+                end=j-1
+        return [start,end]
+
+#optimal solution
+class Solution(object):
+    def searchRange(self, nums, target):
+        def firstOne():
+            left=0
+            right=len(nums)-1
+            ans=-1
+            while left<=right:
+                mid=(left+right)//2
+                if nums[mid]==target:
+                    ans=mid
+                    right=mid-1
+                elif nums[mid]<target:
+                    left=mid+1
+                else:
+                    right=mid-1
+            return ans
+        def lastOne():
+            left=0
+            right=len(nums)-1
+            ans=-1
+            while (left<=right):
+                mid=(left+right)//2
+                if nums[mid]==target:
+                    ans=mid
+                    left=mid+1
+                elif nums[mid]<target:
+                    left=mid+1
+                else:
+                    right=mid-1
+            return ans
+        return[firstOne(),lastOne()]
