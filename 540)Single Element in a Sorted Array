@@ -1,0 +1,20 @@
+class Solution(object):
+    def singleNonDuplicate(self, nums):
+        # BIT MANIPULATION
+        # s=0
+        # for i in nums:
+        #     s^=i
+        # return s
+
+        #BINARY SEARCH
+        l=0
+        r=len(nums)-1
+        while (l<r):
+            mid=(l+r)//2
+            if mid % 2 ==1:
+                mid -= 1
+            if nums[mid] == nums[mid+1]:
+                l=mid+2
+            else:
+                r=mid
+        return nums[l]
