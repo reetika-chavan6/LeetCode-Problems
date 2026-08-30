@@ -1,0 +1,4 @@
+SELECT *
+FROM Cinema
+where id %2 !=0 and NOT description ='boring'
+order by rating desc
