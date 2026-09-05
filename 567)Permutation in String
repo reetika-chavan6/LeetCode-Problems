@@ -1,0 +1,16 @@
+class Solution(object):
+    def checkInclusion(self, s1, s2):
+        freq={}
+        freq1={}
+        for ch in s1:
+            freq[ch]=freq.get(ch,0)+1
+        k=len(s1)
+        for j in range(len(s2)):
+            freq1[s2[j]]=freq1.get(s2[j],0)+1
+            if j>=k:
+                freq1[s2[j-k]]-=1
+                if freq1[s2[j-k]]==0:
+                    del freq1[s2[j-k]]
+            if freq==freq1:
+                return True
+        return False
