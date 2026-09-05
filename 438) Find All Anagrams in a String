@@ -1,0 +1,18 @@
+class Solution(object):
+    def findAnagrams(self, s, p):
+        freq={}
+        a=[]
+        freq1={}
+        for ch in p:
+             freq[ch]= freq.get (ch,0)+1
+        k=len(p)
+        for j in range(len(s)):
+            freq1[s[j]]=freq1.get(s[j],0)+1
+            if j>=k:
+                freq1[s[j-k]]-=1
+                if freq1[s[j-k]]==0:
+                    del freq1[s[j-k]]
+            if freq==freq1:
+                a 
+                a.append(j-k+1)
+        return a
