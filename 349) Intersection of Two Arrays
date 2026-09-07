@@ -1,0 +1,25 @@
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        #hash set
+        n1=set(nums1)
+        n2=set(nums2)
+        return list(n1 & n2)
+
+#OR
+
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        freq={}
+        a=set()
+        for i in nums1:
+            freq[i]=freq.get(i,0)+1
+        freq1={}
+        for j in nums2:
+            freq1[j]=freq1.get(j,0)+1
+        for i in freq:
+            if i in freq1:
+                a.add(i)
+        return list(a)
+        
+      
+        
