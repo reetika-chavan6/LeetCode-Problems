@@ -1,0 +1,11 @@
+
+SELECT max(num)
+as num
+FROM (
+    #inner queried 
+    SELECT num
+    FROM mynumbers
+    group by num
+    having count(*)=1
+    )
+as x
