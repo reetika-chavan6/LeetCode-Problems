@@ -1,0 +1,22 @@
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        freq = {}
+        a = []
+
+        for i in nums:
+            freq[i] = freq.get(i, 0) + 1
+
+        arr = list(freq.items())
+
+        def get_freq(x):
+            return x[1]
+
+        arr.sort(key=get_freq, reverse=True)
+
+        for i in arr:
+            if k > 0:
+                a.append(i[0])
+                k -= 1
+
+
+        
