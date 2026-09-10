@@ -1,0 +1,44 @@
+class Solution(object):
+    def isValidSudoku(self, board):
+        #HASH SET
+        r=len(board)
+        c=len(board[0])
+
+        def checkRow(r,c):
+            for i in range(r):
+                s=set()
+                for j in range(c):
+                    if board[i][j]=='.':
+                        continue
+                    if board[i][j] not in s:
+                        s.add(board[i][j])
+                    else:
+                        return False
+            return True
+        def checkcol(r,c):
+            for i in range(c):
+                s=set()
+                for j in range(r):
+                    if board[j][i]=='.':
+                        continue
+                    if board[j][i] not in s:
+                        s.add(board[j][i])
+                    else:
+                        return False
+            return True
+        def checkBox():
+            for row in range(0,9,3):  # 0,3,6
+                for col in range(0,9,3):
+                    s=set()
+                    for i in range(row,row+3):
+                        for j in range(col,col+3):
+                            if board[i][j]=='.':
+                                continue
+                            if board[i][j] not in s:
+                                s.add(board[i][j])
+                            else:
+                                return False
+            return True
+
+        
+        return checkRow(r,c) and checkcol(r,c) and checkBox()
