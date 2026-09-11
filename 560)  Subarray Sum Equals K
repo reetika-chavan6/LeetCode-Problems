@@ -1,0 +1,14 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        prefix=0
+        hashMap={0:1}
+        count=0
+        for num in nums:
+            prefix+=num
+            if prefix -k in hashMap:
+                count+=hashMap[prefix-k]
+            if prefix in hashMap:
+                hashMap[prefix]+=1
+            else:
+                hashMap[prefix]=1
+        return count
