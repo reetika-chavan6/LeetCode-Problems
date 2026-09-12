@@ -1,0 +1,45 @@
+class Solution(object):
+    def minWindow(self, s, t):
+        need={}
+        for ch in t:
+            need[ch]=need.get(ch,0)+1
+        window={}
+        count=0
+        left=0
+        start=0
+        min_len = float('inf')
+
+        for right in range(len(s)):
+            ch=s[right]
+            window[ch]=window.get(ch,0)+1
+            
+            if ch in need and window[ch]<=need[ch]:
+                count+=1
+            
+            while count>=len(t):
+                if right-left+1 <min_len:
+                    min_len=right-left+1
+                    start=left
+
+
+                left_ch=s[left]
+                window[left_ch]-=1
+                if left_ch in need and window[left_ch]<need[left_ch]:
+                    count-=1
+                left+=1
+        if min_len==float('inf'):
+            return ""
+        return s[start:start+min_len]
+
+        # need → what I need
+        # window → what I currently have
+        # count → whether my window satisfies the requirement
+
+            
+            
+        
+            
+            
+        
+        
+        
