@@ -1,0 +1,11 @@
+class Solution(object):
+    def firstMissingPositive(self, nums):
+        freq={}
+        for i in nums:
+            if i>0:
+                freq[i]=1
+        minimum=1
+        for i in freq:
+            while minimum in freq:
+                minimum+=1
+        return minimum
