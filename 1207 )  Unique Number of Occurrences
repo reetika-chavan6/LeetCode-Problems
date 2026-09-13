@@ -1,0 +1,16 @@
+class Solution(object):
+    def uniqueOccurrences(self, arr):
+        freq={}
+        for i in arr:
+            freq[i]=freq.get(i,0)+1
+        # occurance=set(freq.values())
+        # return len(freq)==len(occurance)
+
+        s=list(freq.values())
+        a=[]
+        for i in s:
+            if i not in a:
+                a.append(i)
+            else:
+                return False
+        return True
