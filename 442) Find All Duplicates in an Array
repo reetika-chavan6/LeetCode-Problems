@@ -1,0 +1,10 @@
+class Solution(object):
+    def findDuplicates(self, nums):
+        freq={}
+        a=[]
+        for num in nums:
+            freq[num]=freq.get(num,0)+1
+        for i in freq:
+            if freq[i] >1:
+                a.append(i)
+        return a
