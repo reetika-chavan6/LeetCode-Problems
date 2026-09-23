@@ -1,0 +1,17 @@
+class Solution(object):
+    def minRemoveToMakeValid(self, s):
+        stack=[]
+        ans=[]
+        for i in s:
+            if i == '(':
+                stack.append(len(ans))
+                ans.append(i)
+            elif i == ')':
+                if stack:
+                    stack.pop()
+                    ans.append(i)
+            else:
+                ans.append(i)
+        for index in stack:
+            ans[index] = ""
+        return "".join(ans)
