@@ -1,0 +1,26 @@
+class FreqStack(object):
+
+    def __init__(self):
+        self.stack=[]
+        
+
+    def push(self, val):
+        self.stack.append(val)
+        
+
+    def pop(self):
+        freq={}
+        for i in self.stack:
+            freq[i]=freq.get(i,0)+1
+        maxi=0
+        for i in freq:
+            maxi=max(freq[i],maxi)
+        for i in range(len(self.stack) - 1, -1, -1):
+            if freq[self.stack[i]] == maxi:
+                return self.stack.pop(i)
+
+            
+      
+        
+
+
