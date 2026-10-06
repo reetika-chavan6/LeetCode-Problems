@@ -1,0 +1,19 @@
+class Solution(object):
+    def timeRequiredToBuy(self, tickets, k):
+        Q=deque()
+        time=0
+        for i in range(len(tickets)):
+            Q.append(i)
+        while Q:
+            i=Q.popleft()
+            tickets[i]-=1
+            time+=1
+            if i==k and tickets[i]==0:
+                return time
+            if tickets[i]>0:
+                Q.append(i)
+        return time
+
+            
+      
+        
