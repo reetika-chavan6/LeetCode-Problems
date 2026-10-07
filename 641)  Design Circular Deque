@@ -1,0 +1,89 @@
+class MyCircularDeque(object):
+
+    def __init__(self, k):
+        self.deque=[]
+        self.k=k
+        """
+        :type k: int
+        """
+        
+
+    def insertFront(self, value):
+        if self.isFull():
+            return False
+        else:
+            self.deque.insert(0,value)
+            return True
+        
+        """
+        :type value: int
+        :rtype: bool
+        """
+        
+
+    def insertLast(self, value):
+        if self.isFull():
+            return False
+        self.deque.append(value)
+        return True
+        """
+        :type value: int
+        :rtype: bool
+        """
+        
+
+    def deleteFront(self):
+        if self.isEmpty():
+            return False
+        self.deque.pop(0)
+        return True
+        """
+        :rtype: bool
+        """
+        
+
+    def deleteLast(self):
+        if self.isEmpty():
+            return False
+        self.deque.pop()
+        return True
+        
+        """
+        :rtype: bool
+        """
+        
+
+    def getFront(self):
+        if self.isEmpty():
+            return -1
+        return self.deque[0]
+        """
+        :rtype: int
+        """
+        
+
+    def getRear(self):
+        if self.isEmpty():
+            return -1
+        return self.deque[-1]
+    
+        """
+        :rtype: int
+        """
+        
+
+    def isEmpty(self):
+        return len(self.deque)==0
+        """
+        :rtype: bool
+        """
+        
+
+    def isFull(self):
+        return len(self.deque)==self.k
+        """
+        :rtype: bool
+        """
+        
+
+
