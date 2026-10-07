@@ -1,0 +1,19 @@
+class Solution(object):
+    def countStudents(self, students, sandwiches):
+        q=deque()
+        for i in range(len(students)):
+            q.append(i)
+        ans=0
+        while q:
+            i=q.popleft()
+            if students[i]== sandwiches[0]:
+                sandwiches.pop(0)
+                ans=0
+            else:
+                q.append(i)
+                ans+=1
+            if ans==len(q):
+                break
+        return ans
+    
+        
