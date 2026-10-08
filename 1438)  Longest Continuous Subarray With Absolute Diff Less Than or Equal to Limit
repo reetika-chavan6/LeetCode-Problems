@@ -1,0 +1,27 @@
+class Solution(object):
+    def longestSubarray(self, nums, limit):
+        maximum=deque()
+        minimum=deque()
+        l=0
+        ans=0
+        for right in range(len(nums)):
+            while maximum and nums[maximum[-1]] < nums[right]:
+                maximum.pop()
+            maximum.append(right)
+
+            while minimum and nums[minimum[-1]] > nums[right]:
+                minimum.pop()
+            minimum.append(right)
+
+            while nums[maximum[0]]-nums[minimum[0]] > limit:
+                if maximum[0] ==l:
+                    maximum.popleft()
+                if minimum[0] ==l:
+                    minimum.popleft()
+                l+=1
+            ans=max(ans,right-l+1)
+        return ans
+
+
+      
+        
