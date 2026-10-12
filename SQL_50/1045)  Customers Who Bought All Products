@@ -1,0 +1,4 @@
+SELECT c.customer_id
+FROM Customer as c
+Group by c.customer_id
+having count(distinct c.product_key)in (select count(product_key)  from Product )
