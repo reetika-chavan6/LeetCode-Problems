@@ -1,0 +1,12 @@
+SELECT (case
+        when id % 2 =1 and id < (select max(id) from Seat) then id + 1
+        when id % 2 =0  then id - 1
+        else id 
+        END) AS id,
+        student
+FROM SEAT
+ORDER BY id
+-- odd id then +1
+-- even id then -1
+-- order by (imp)
+
