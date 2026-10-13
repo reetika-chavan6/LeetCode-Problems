@@ -1,0 +1,30 @@
+class Solution(object):
+    def reorderList(self, head):
+        #mid value -> reverse -> merge
+        slow,fast=head,head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        
+        curr=slow.next
+        slow.next=None
+        prev=None
+        while curr:
+            NewNode=curr.next
+            curr.next=prev
+            prev=curr
+            curr=NewNode
+        
+        first=head
+        second=prev
+        while second:
+            nextFirst=first.next
+            nextSec=second.next
+
+            first.next=second
+            second.next=nextFirst
+
+            first=nextFirst
+            second=nextSec
+       
+        
