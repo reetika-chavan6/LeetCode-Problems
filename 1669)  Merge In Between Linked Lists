@@ -1,0 +1,26 @@
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeInBetween(self, list1, a, b, list2):
+        dummy=ListNode(0)
+        curr=dummy
+        for i in range(a):
+            curr.next=list1
+            list1=list1.next
+            curr=curr.next
+        curr.next=list2
+
+        while curr.next:
+            curr=curr.next
+
+        for i in range(b-a+1):
+            list1=list1.next
+        curr.next=list1  
+        
+        return dummy.next
+
+
+        
+        
