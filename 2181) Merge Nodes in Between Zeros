@@ -1,0 +1,15 @@
+class Solution(object):
+    def mergeNodes(self, head):
+        dummy=ListNode(0)
+        curr=dummy
+        total=0
+        head=head.next
+        while head:
+            if head.val == 0:
+                curr.next=ListNode(total)
+                curr=curr.next
+                total=0
+            else:
+                total+=head.val
+            head=head.next
+        return dummy.next
