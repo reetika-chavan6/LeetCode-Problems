@@ -1,0 +1,23 @@
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN 
+SET N=N-1;
+  RETURN (
+    SELECT distinct salary
+    FROM EMPLOYEE 
+    order by salary desc
+    limit N,1  #LIMIT N, 1 means skip N rows and return one row.
+  );
+END
+
+#or 
+
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN 
+SET N=N-1;
+  RETURN (
+    SELECT distinct salary
+    FROM EMPLOYEE 
+    order by salary desc
+    limit 1 OFFSET N 
+  );
+END
