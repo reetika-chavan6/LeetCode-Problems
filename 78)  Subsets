@@ -1,0 +1,16 @@
+class Solution(object):
+    def subsets(self, nums):
+        result=[]
+        def solve(index,curr):
+            if index==len(nums):
+                result.append(curr[:])
+                return
+            solve(index+1,curr) #exclude
+
+            curr.append(nums[index])#include
+            solve(index+1,curr)
+            curr.pop()
+        solve(0,[])
+        return result
+       
+        
