@@ -1,0 +1,15 @@
+class Solution(object):
+    def combine(self, n, k):
+        result=[]
+        def solve(start,curr):
+            if len(curr)==k:
+                result.append(curr[:])
+                return 
+            for i in range(start,n+1):
+                curr.append(i)
+                solve(i+1,curr)
+                curr.pop()
+        solve(1,[])
+        return result
+      
+        
