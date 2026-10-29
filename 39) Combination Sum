@@ -1,0 +1,17 @@
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        result=[]
+        def solve(curr,index,remaining):
+            if remaining==0:
+                result.append(curr[:])
+                return 
+            for i in range(index,len(candidates)):
+                if candidates[i] <= remaining: 
+                    curr.append(candidates[i])
+                    solve(curr,i, remaining-candidates[i])
+                    curr.pop()
+        
+        solve([],0,target)
+        return result
+       
+        
