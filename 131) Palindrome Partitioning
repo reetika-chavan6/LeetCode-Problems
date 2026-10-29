@@ -1,0 +1,17 @@
+class Solution(object):
+    def partition(self, s):
+        result=[]
+        def solve(index,curr):
+            if index==len(s):
+                result.append(curr[:])
+                return 
+            for i in range(index,len(s)):
+                word=s[index:i+1]
+                if word==word[::-1]:
+                    curr.append(word)
+                    solve(i+1,curr)
+                    curr.pop()
+        solve(0,[])
+        return result
+       
+        
