@@ -1,0 +1,27 @@
+class Solution(object):
+    def postorderTraversal(self, root):
+        if not root:
+            return []
+        res=[]
+        res.extend(self.postorderTraversal(root.left))
+        res.extend(self.postorderTraversal(root.right))
+        res.append(root.val)
+        return res
+
+#OR 
+
+class Solution(object):
+    def postorderTraversal(self, root):
+        if not root:
+            return []
+        st=[root]
+        res=[]
+        while st:
+            node=st.pop()
+            res.append(node.val)
+            if node.left:
+                st.append(node.left)
+            if node.right:
+                st.append(node.right)
+        return res[::-1]
+            
