@@ -18,3 +18,14 @@ class Solution:
             if node.left:
                 st.append(node.left)
         return res
+
+#Backtracking  Method
+class Solution(object):
+    def preorderTraversal(self, root):
+        result=[]
+        if not root:
+            return []
+        result.append(root.val)
+        result.extend(self.preorderTraversal(root.left))
+        result.extend(self.preorderTraversal(root.right))
+        return result
