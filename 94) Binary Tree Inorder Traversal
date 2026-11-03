@@ -16,3 +16,16 @@ class Solution:
             res.append(curr.val)
             curr=curr.right
         return res
+
+#BACKTACKING METHOD 
+
+class Solution(object):
+    def inorderTraversal(self, root):
+        res=[]
+        if not root:
+            return []
+        res.extend(self.inorderTraversal(root.left))
+        res.append(root.val)
+        res.extend(self.inorderTraversal(root.right))
+        return res
+
