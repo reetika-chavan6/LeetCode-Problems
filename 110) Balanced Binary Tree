@@ -1,0 +1,16 @@
+class Solution(object):
+    def isBalanced(self, root):
+        if not root:
+            return True
+        left=self.checkHeight(root.left)
+        right=self.checkHeight(root.right)
+        if abs(left-right)>1:
+            return False
+        return (self.isBalanced(root.left) and self.isBalanced(root.right))
+        
+    def checkHeight(self,root):
+        if not root:
+            return 0
+        left=self.checkHeight(root.left)
+        right=self.checkHeight(root.right)
+        return 1+max(left,right)
